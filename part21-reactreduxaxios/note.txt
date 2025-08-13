@@ -1,0 +1,60 @@
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+=> Bootstrap Install 
+getbootstrap.com >
+
+npm install bootstrap 
+in your main.jsx
+import "bootstrap/dist/css/bootstrap.min.css";
+
+npm install @popperjs/core
+import "bootstrap/dist/css/bootstrap.bundle.min.css";
+
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+
+=> Install React 
+
+npm create vite@latest
+my-app
+React
+javascript
+cd my-app
+npm install
+npm run dev
+
+----------------------
+
+React Router 
+
+1. install
+npm i react-router
+
+2. import 
+import {BrowserRouter,Routes,Route} from "react-router"
+
+----------------------
+
+=> React Redux 
+npm install @reduxjs/toolkit react-redux
+
+----------------------
+
+=> axios 
+npm install axios
+
+--------------------------------------------------------------
+
+=> Set up Express API (backend) ( )
+
+mkdir expressapi
+cd expressapi
+npm init -y 
+npm install express cors
+
+create server.js 
+
+node server.js
+
+--------------------------------------------------------------

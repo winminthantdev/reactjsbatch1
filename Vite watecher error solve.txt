@@ -1,0 +1,43 @@
+=> Vite watcher error solving
+
+=> Sloution 1
+
+https://vite.dev/guide/troubleshooting.html
+
+
+1. Check the current limit 
+cat /proc/sys/fs/inotify/max_user_watches 
+
+2. Temporarily increase the limit ( for the current session )
+ sudo sysctl fs.inotify.max_user_watches=524288
+
+
+
+
+=> Sloution 2
+
+1. Open the sysctl configuration file
+sudo nano /etc/sysctl.conf
+
+2. Add the following lines at the end
+fs.inotify.max_user_watches=524288
+
+3. Apply the changes
+sudo sysctl -p
+
+
+
+=> Solution 3
+
+1. Config to vite.config.js
+
+export default defineConfig({
+	server: {
+		watch:{
+			usePolling: true,
+		}
+	}
+})
+
+
+npm run dev 

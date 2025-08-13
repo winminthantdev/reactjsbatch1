@@ -1,0 +1,64 @@
+=> Install React 
+
+npm create vite@latest 
+my-app
+React 
+javascript
+cd my-app
+npm install
+npm run dev 
+
+---------------------------------------------------
+
+=> React Router  (v7 , ^7.1.2 )
+
+https://reactrouter.com/start/framework/installation
+node v20 
+react v18
+react-dom v18
+
+
+1.install
+npm install react-router-dom@latest or npm install react-router@7 (note : you can install from OS terminal as well )
+
+2. import 
+
+import { BrowserRouter, Routes , Route } from "react-router";
+
+--------------------------------------------------------------------
+
+ => React Redux ( ^9.2.0 , ^2.5.0)
+
+ https://redux.js.org/
+
+ 1.install ( React-Redux = npm install react-redux )
+
+npm install @reduxjs/toolkit react-redux
+
+
+--------------------------------------------------------------------
+
+Current Version = "react": "^18..3.1", ( 9 Jan 2025 )
+
+=> React Hook 
+    React v16.8
+    ( just for Functional Components )
+
+    useState()
+    useEffect()
+    useCOntext()
+
+
+    
+=> React Redux ( third-party library )
+    global state management 
+
+    1.Store = to store "Global State"
+    2.Actions = Function that describe what should happen
+    3.Reducers = create logic functions to change "State"
+    4.Dispatch = Mechanism to send actions to reducers
+
+--------------------------------------------------------------------
+ 
+
+9RD

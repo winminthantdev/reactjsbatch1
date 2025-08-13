@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Working with babel - Array</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- -------------link React JS--------------- -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!------------------ link Babel ------------------- -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+       let solidcolorarr = [];
+       let gradientcolorarr = [];
+
+      const colorfun = (mainarr,item) =>{
+       mainarr.push(item);
+      }
+      colorfun(solidcolorarr,'red')
+      colorfun(solidcolorarr,'green')
+      colorfun(solidcolorarr,'blue')
+      colorfun(gradientcolorarr,'orange')
+      colorfun(gradientcolorarr,'yellow')
+      colorfun(gradientcolorarr,'black')
+      colorfun(gradientcolorarr,'white')
+      console.log(solidcolorarr);
+      console.log(gradientcolorarr);
+      
+
+      const result = (
+       <div>
+        <ul>
+        {solidcolorarr.map((myarr,idx) => <li key={idx}>{myarr}</li>)}
+        {gradientcolorarr.map((myarr,idx) => <li key={idx}>{myarr}</li>)}
+         </ul>
+
+        </div>
+      )
+
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      root.render(result)
+    </script>
+  </body>
+</html>

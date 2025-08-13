@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Working with babel - Object</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- -------------link React JS--------------- -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!------------------ link Babel ------------------- -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const getinfo = (name,city) => ({fullname:name, hometown:city});
+
+      const container = (
+        <div>
+          {JSON.stringify(getinfo("su su", "Yangon"))}
+          
+          </div>
+      )
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      root.render(container)
+    </script>
+  </body>
+</html>

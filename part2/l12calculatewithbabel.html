@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Working with babel - Calcualate</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- -------------link React JS--------------- -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!------------------ link Babel ------------------- -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+      const calone = (x,y) => x+y;
+      const caltwo = (x,y) => x-y;
+      const calthree = (x,y) => x*y;
+      const calfour = (x,y) => x/y;
+      const calfive = (x,y) => x%y;
+
+      const result = (
+       <div>
+        <p>the addtion of 20 and 10 = {calone(20,10)}</p>
+        <p>the addtion of "20" and 10 = {calone("20",10)}</p>
+        <p>the sub of "20" and 10 = {caltwo("20",10)}</p>
+        <p>the multiple of "20" and 10 = {calthree("20",10)}</p>
+        <p>the devition of "20" and 10 = {calfour("20",10)}</p>
+        <p>the moculous of "20" and 10 = {calfive("20",10)}</p>
+        
+        </div>
+      )
+
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      root.render(result)
+    </script>
+  </body>
+</html>

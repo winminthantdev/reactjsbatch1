@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Working with babel - Function</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- -------------link React JS--------------- -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!------------------ link Babel ------------------- -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const msg1 = 'Hey gays'
+      const msg2 = 'Thanks for interesting'
+
+      const myfunone = () => msg1
+      const myfuntwo = (language) => msg2 + language
+      const myfunthree = (framework) => `${framework} is my fav framework`
+
+      const header = <p>{myfuntwo('javaScript')}</p>;
+      const caption = <p>{'ReactJS'}</p>
+      const container = (
+        // <div>
+        //   <h1>{myfunone()}</h1>
+        //   <p>{myfuntwo('JavaScript')}</p>
+        //   <p>{myfunthree('ReactJS')}</p>
+        // </div>
+
+        // <>
+        //   <h1>{myfunone()}</h1>
+        //   <p>{myfuntwo('JavaScript')}</p>
+        //   <p>{myfunthree('ReactJS')}</p>
+        // </>
+
+
+        // <React.Fragment>
+        //   <h1>{myfunone()}</h1>
+        //   <p>{myfuntwo('JavaScript')}</p>
+        //   <p>{myfunthree('ReactJS')}</p>
+        // </React.Fragment>
+
+        <React.Fragment>
+         {header}
+         {caption}
+        </React.Fragment>
+      )
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      root.render(container)
+    </script>
+  </body>
+</html>

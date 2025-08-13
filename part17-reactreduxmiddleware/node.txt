@@ -1,0 +1,72 @@
+
+---------------------------------------------
+
+---------------------------------------------
+
+=> Redux 
+
+https://redux.js.org/
+
+
+1. install ( React_Redux = npm install react-redux )
+
+npm install @reduxjs/toolkit 
+npm install redux
+
+npm install @reduxjs/toolkit react-redux
+
+---------------------------------------------
+
+Current Version = "react" : "^18.3.1", ( 9 jan 2025 )
+
+
+=> React Hook
+				React v16.8
+				(just for Functional Components)
+
+				useState()
+				useEffect()
+				useContent()
+
+
+=> React Redux (third-party library)
+				global state management 
+
+				1. Store            =  to store "Global State"
+				2. Actions			= 	Function that describe what should happen 
+				3. Reducers 		=  create logice functions to change "State"
+				4. Dispatch 		= 	Mechanism to send actions to reducers 
+
+				
+---------------------------------------------
+
+=> Redux Middleware
+
+1.create new folder src > middleware 
+
+=> read more 
+https://redux.js.org/tutorials/fundamentals/part-4-store#using-middleware 
+
+2.create log.js file middleware
+3. use in store.js
+
+Feature                                                without middleware                                           with middleware
+Synchronous                                                 yes                                                        yes
+Asynchronous (API calls,database access timers)              no                                                        yes
+Logging / Debugging                                          no                                                        yes
+Authentication & Authorization                               no                                                        yes
+Performance Optimization                                     no                                                        yes 
+
+---------------------------------------------
+
+=> Redux Middleware + Redux Logger (for action log , version ^3.0.6)
+
+https://www.npmjs.com/package/redux-logger
+
+1.install
+npm i --save redux-logger
+
+2. import to store.js
+import { createLogger } from 'redux-logger'
+
+---------------------------------------------

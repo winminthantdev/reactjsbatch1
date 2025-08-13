@@ -1,0 +1,28 @@
+ReactJS ( Open Source library for building user interfaces)
+
+    ReactJS is not only javascript library but also framework
+    ReactJS is component based Architecture
+
+=> ReactJS History
+
+2010 XHP
+2011 Fax Js
+2012 React - created (used on facebook)
+2013 React Public
+2017 React Fiber
+2019 Hooks
+
+
+=>component
+view ( for user)
+Style
+Logic
+
+
+node -v
+npm --version
+
+--------------------------------------------------------------
+
+
+

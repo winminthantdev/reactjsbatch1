@@ -1,0 +1,180 @@
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+=> Bootstrap Install 
+getbootstrap.com >
+
+npm install bootstrap 
+in your main.jsx
+import "bootstrap/dist/css/bootstrap.min.css";
+
+npm install @popperjs/core
+import "bootstrap/dist/css/bootstrap.bundle.min.css";
+
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+
+=> Install React 
+
+npm create vite@latest
+my-app
+React
+javascript
+cd my-app
+npm install
+npm run dev
+
+----------------------
+
+React Router 
+
+1. install
+npm i react-router
+
+2. import 
+import {BrowserRouter,Routes,Route} from "react-router"
+
+----------------------
+
+=> React Redux 
+npm install @reduxjs/toolkit react-redux
+
+----------------------
+
+=> axios 
+npm install axios
+
+--------------------------------------------------------------
+
+=> Set up Express API (backend) ( )
+
+mkdir expressapi
+cd expressapi
+npm init -y 
+npm install express cors
+
+create server.js 
+
+node server.js
+
+--------------------------------------------------------------
+
+=> Install UUID package (ver : ^11.1.0)
+
+npm install uuid
+
+eg : with destructuring
+const {v4:uuidv4} = require('uuid');
+
+eg : without destructuring
+const uuid = require('uuid');
+const uuidv4 = uuid.v4;
+
+
+=> Install Bootstrap
+
+npm install bootstrap @popperjs/core
+
+      (i ) import Bootstrap CSS in your main.jax or App.jsx 
+            import "bootstrap/dist/css/bootstrap.min.css"
+            import "bootstrap/dist/js/bootstrap.bundle.min.js"
+
+
+
+---------------------------------------------------------------------------
+
+=> Install React-Fontawesome ( v ^ 6.7.2 , ^0.2.2 )
+
+https://docs.fontawesome.com/web/use-with/react
+      (i) install 
+            npm i --save @fortawesome/fontawesome-svg-core
+            npm i --save @fortawesome/react-fontawesome@latest
+            npm i --save @fortawesome/free-solid-svg-icons
+            npm i --save @fortawesome/free-regular-svg-icons
+            npm i --save @fortawesome/free-brands-svg-icons
+
+      (ii) Create a fontawesome config file
+            src > lib > fontawesome.js
+            import { library } from '@fortawesome/fontawesome-svg-core'
+            import { fab } from '@fortawesome/free-brands-svg-icons'
+            import { far } from '@fortawesome/free-regular-svg-icons'
+            import { fas } from '@fortawesome/sharp-solid-svg-icons'
+            library.add(fab,far,fas)
+
+      (iii) Import Config to src/main.jsx
+            src > main.jsx 
+
+            import './lib/fontawesome.js'
+
+            (iv) Usage in Components 
+            import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
+---------------------------------------------------------------------------
+
+=> Install jQuery  and Inject ( v,v  )
+https://jquery.com/download/
+https://www.npmjs.com/package/@rollup/plugin-inject
+
+      (i) Instal jQuery
+            npm i jquery or npm install jquery
+
+      (ii) install jnject
+            npm i @rollup/plugin-inject --save-dev
+
+      --------------------------
+
+      (iii) Vite config setting for Inject
+      // vite.config.js
+      export default defineConfig({
+      plugins: [
+            react(),
+            inject({
+                  $:'jquery',
+                  jQuery:'jquery'
+            })
+            ],
+            optimizeDeps:{
+            include:['jquery']
+            }
+      })
+
+      (iv) Import jQuery to your Components
+
+      import React, { useEffect, useState } from "react"
+      import $ from 'jquery'
+
+      useEffect(()=>{
+            $('.titles').css('color','red');
+      },[])
+
+
+
+---------------------------------------------------------------------------
+
+
+=> Install lightbox2 
+
+https://lokeshdhakar.com/projects/lightbox2/
+
+
+      (i) install 
+      npm install lightbox2 --save
+
+
+      (ii) impoty 
+      // src/main.jsx or your Components
+
+      import { createRoot } from 'react-dom/client'
+      import { BrowserRouter as Router, Routes, Route, Link } from 'react-router'
+      import './lib/fontawesome.js'
+
+      import "bootstrap/dist/css/bootstrap.min.css"
+      import "bootstrap/dist/js/bootstrap.bundle.min.js"
+
+
+      import "bootstrap/dist/css/lightbox2.min.css"         
+      import "lightbox2/dist/js/lightbox2.min.js"
+
+
+      10HW

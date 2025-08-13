@@ -1,0 +1,71 @@
+
+---------------------------------------------
+// => React Router (v7)
+
+node over 20
+
+npm install react-router@latest or npm install react-router@7 () 
+
+import 
+
+still be able to use this app.import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+---------------------------------------------
+
+=> Redux 
+
+https://redux.js.org/
+
+
+1. install ( React_Redux = npm install react-redux )
+
+npm install @reduxjs/toolkit 
+npm install redux
+
+npm install redux
+
+npm install @reduxjs/toolkit react-redux
+
+---------------------------------------------
+
+Current Version = "react" : "^18.3.1", ( 9 jan 2025 )
+
+
+=> React Hook
+				React v16.8
+				(just for Functional Components)
+
+				useState()
+				useEffect()
+				useContent()
+
+
+=> React Redux (third-party library)
+				global state management 
+
+				1. Store      =  to store "Global State"
+				2. Actions				= 	Function that describe what should happen 
+				3. Reducers 		=  create logice functions to change "State"
+				4. Dispatch 		= 	Mechanism to send actions to reducers 
+
+				
+---------------------------------------------
+
+
+
+=> Chrome Extension
+
+1. go to chrome webstore
+chromewebstore 
+
+2. download and install
+Recux DevTools
+
+
+---------------------------------------------

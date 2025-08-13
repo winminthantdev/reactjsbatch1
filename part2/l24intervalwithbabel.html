@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Working with babel - Props</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- -------------link React JS--------------- -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!------------------ link Babel ------------------- -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      let idx = 0
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      const setinterfun = setInterval(indexinc, 100)
+      function indexinc() {
+        const ptag = <h1>{idx}</h1>
+        if (idx === 100) {
+          clearInterval(setinterfun)
+        } else {
+          idx++
+        }
+        root.render(ptag)
+      }
+    </script>
+  </body>
+</html>

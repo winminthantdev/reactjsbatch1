@@ -1,0 +1,14 @@
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+=> Bootstrap Install 
+getbootstrap.com >
+
+npm install bootstrap 
+in your main.jsx
+import "bootstrap/dist/css/bootstrap.min.css";
+
+npm install @popperjs/core
+import "bootstrap/dist/css/bootstrap.bundle.min.css";
+
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_

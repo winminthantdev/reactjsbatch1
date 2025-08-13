@@ -1,0 +1,24 @@
+=> how to install
+
+node -v
+nvm ls or nvm list or nvm list-remote
+nvm use v22.3.0
+nvm alias default v22.3.0
+
+npm
+nvm
+
+=> ReactJs Installation Method 1
+
+https://react.dev/
+https://react.dev/learn/start-a-new-react-project
+
+
+npx create-next-app@latest
+
+=> ReactJs Installation Method 2
+
+https://vitejs.dev/
+https://vitejs.dev/guide/
+
+npm create vite@latest

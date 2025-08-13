@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Working with babel - Props</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- -------------link React JS--------------- -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!------------------ link Babel ------------------- -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+      const caption = (val) => `Counter number : ${val}`
+      let idx = 10
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      const setinterfun = setInterval(indexinc, 1000) 
+      function indexinc() {
+        const h1tag = <h1>{caption(idx)}</h1>
+
+        if (idx === 0) {
+          clearInterval(setinterfun)
+
+        } else {
+          idx--
+        }
+        root.render(h1tag)
+      }
+    </script>
+  </body>
+</html>

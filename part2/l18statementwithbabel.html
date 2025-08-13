@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Working with babel - Component</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- -------------link React JS--------------- -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!------------------ link Babel ------------------- -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+      const hascar = false;
+      const  mycar = (
+        <div className={hascar ? 'drive': 'walk'}>
+          {hascar ? <p>I have a car </p> : <p>I am thinking aboout to buy a new car!</p>}
+          </div>
+      )
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      root.render(mycar)
+    </script>
+  </body>
+</html>
