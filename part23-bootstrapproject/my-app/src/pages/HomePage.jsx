@@ -1,19 +1,20 @@
 import React from "react";
 
-
-import AboutUs from '../components/AboutUs';
-import Adv from '../components/Adv';
-import BackToTop from '../components/BackToTop';
-import Contact from '../components/Contact';
-import Customers from '../components/Customers';
-import Footer from '../components/Footer';
-import Furniture from '../components/Furniture';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
+
+import AboutUs from '../components/AboutUs';
 import Properties from '../components/Properties';
+import Adv from '../components/Adv';
+import BackToTop from '../components/BackToTop';
+
 import Services from '../components/Services';
 import Clients from '../components/Clients';
-import Quote from "../components/Quote";
+import Customers from '../components/Customers';
+import Quote from '../components/Quote';
+import Furniture from '../components/Furniture';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 
 const HomePage = ()=>{
   return(
@@ -21,7 +22,6 @@ const HomePage = ()=>{
       <Header />
       <Navbar />
       <AboutUs />
-
       <Properties />
       <Adv />
       <Services />
@@ -30,7 +30,6 @@ const HomePage = ()=>{
       <Quote />
       <Furniture />
       <Contact />
-      
       <BackToTop />
       
     </>
@@ -38,6 +37,3 @@ const HomePage = ()=>{
 };
 
 export default HomePage;
-
-
-// 24FN

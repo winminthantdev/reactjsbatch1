@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
+
 import favicon from "../assets/img/fav/favicon.png"
 
 const Navbar = ()=>{
@@ -16,12 +17,11 @@ const Navbar = ()=>{
     }
 
     window.addEventListener("scroll",scrollHandler);
-    
-    // clean up the event listener when component unmounts
-    return ()=>window.removeEventListener("scroll",scrollHandler)
-    
-  },[scrolled])
 
+    // clean up the event listener when component unmounts 
+    return ()=>window.removeEventListener("scroll",scrollHandler);
+    
+  },[scrolled]);
 
   return(
     <nav className={`navbar navbar-expand-lg fixed-top ${scrolled ? 'navmenus' : ''}`}>
@@ -57,5 +57,4 @@ const Navbar = ()=>{
 
 export default Navbar;
 
-
-// 31AV
+// 31AV 

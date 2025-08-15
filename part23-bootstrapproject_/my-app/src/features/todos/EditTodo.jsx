@@ -1,47 +1,39 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router";
-import { edituser } from "../../store/todosreducer";
+import { useState } from 'react';
+import {useDispatch,useSelector } from 'react-redux';
+import {useNavigate,useParams } from 'react-router';
+import {updatetodo} from './../../store/todosreducer';
 
 
-export default function EditUser(){
+export default function UpdateTodo(){
 
-    const { id } = useParams();
-    const currentuser = useSelector((state)=>state.users.users.find((user) => user.id === parseInt(id)));
-    const [name,setName] = useState(currentuser?.name || '');
-    const [email,setEmail] = useState(currentuser?.email || '');
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-
-    const submitHandler = (e)=>{
-        e.preventDefault();
-
-        dispatch(edituser({id:parseInt(id),name,email}))
-            .unwrap()
-            .then(()=>{
-                navigate('/')
-            });
-
-    }
-
-    if(!currentuser) return <p>User not found.</p>
-
-    return (
-        <div>
-            <h3>Add New User</h3>
-            <form onSubmit={submitHandler}>
-                <input type="text" placeholder="Enter Your Name" value={name} onChange={(e)=>setName(e.target.value)}/>
-                <input type="checkbox" placeholder="Enter Your Email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                <button type="submit">Update</button>
-            </form>
-        </div>
-    )
-};
+  const {id} = useParams();
+  const currenttodo = useSelector((state)=>state.todos.todos.find((todo) => todo.id === parseInt(id)))
+  const [title,setTitle] = useState(currenttodo?.title || '');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
 
+  const submitHandler = (e)=>{
+    e.preventDefault();
 
+    dispatch(updatetodo({id:parseInt(id),title}))
+      .unwrap()
+      .then(()=>{
+        navigate('/');
+      });
+  }
 
-// 29EU
+  if(!currenttodo) return <p>Todo not found.</p>
+  
+  return (
+    <div>
+      <h3>Update Todo</h3>
+      <form onSubmit={submitHandler}>
+          <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} placeholder="Enter Your Title" />
+          <button type="submit">Update</button>
+      </form>
+    </div>
+  )
+}
 
-// 12TD
+// 29EU 

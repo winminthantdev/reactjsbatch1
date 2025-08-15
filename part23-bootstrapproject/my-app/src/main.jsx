@@ -1,8 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import {BrowserRouter as Router,Routes,Route,Link} from 'react-router';
 import './lib/fontawesome.js'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'

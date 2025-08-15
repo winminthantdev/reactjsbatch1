@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "./Navbar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 
@@ -9,7 +8,7 @@ const Header = ()=>{
     <>
       {/* Start Back to Top */}
         <div className="fixed-bottom">
-            <a href="/" className="btn-backtotops"><FontAwesomeIcon icon="fas fa-arrow-up"/></a>
+            <a href="#" className="btn-backtotops"><i className="fas fa-arrow-up"></i></a>
         </div>
       {/* End Back to Top */}
 

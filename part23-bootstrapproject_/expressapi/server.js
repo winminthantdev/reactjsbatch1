@@ -1,76 +1,67 @@
-const express = require("express");
+const express = require('express');
 const cors = require('cors'); // Cross-Origin Resource Sharing
-const {v4:uuid4} = require('uuid')
-const app = express();
-
+const {v4:uuidv4} = require('uuid')
 const bodyParser = require('body-parser'); // Express Middleware
+const app = express();
 const PORT = 5000;
 
+
+
 app.use(cors());
-// app.use(express.json());
 app.use(bodyParser.json());
 
 
-let todos = [
-    // {id:1,title:"Have to go",completed:false},
-    // {id:2,title:"Have to eat",completed:false},
-    // {id:3,title:"Have to shop",completed:false},
-    // {id:4,title:"Have to cook",completed:true},
-    // {id:5,title:"Have to visit",completed:true}
-];
-
-
-// All todos
-// http://localhost:5000/api/todos
-app.get("/api/todos",(req,res)=>{
-    res.json(todos)
-});
-
-// Add New Todo
-app.post("/api/todos",(req,res)=>{
-    const {title} = req.body;
-    const newtodo = {id:uuid4(),title,completed:false};
-    todos.push(newtodo);
-    res.status(200).json(newtodo);
-});
-
-// Update todo
-app.put("/api/todos/:id",(req,res)=>{  
-    const {id} = req.params;
-    const {title,completed} = req.body;
-    todos = todos.map(todo => todo.id == id ? {...todo, title, completed }: todo);
-    res.json({id,title,completed});
-});
-
-// Delete todo
-app.delete("/api/todos/:id",(req,res)=>{ 
-    // const {id} = req.params;
-    // const todo = todos.find(todo => todo.id == id);
-    // if(!todo){
-    //     return res.status(404).json({message:"todo not found"});
-    // }
-    // todos = todos.filter(todo => todo.id != id );
-    // res.status(204).send(); // successfully 
-
-    try {
-            const {id} = req.params;
-
-            const todoindex = todos.findIndex(todo => todo.id == id);
-
-            if(todoindex === -1){
-                return res.status(404).json({message:"todo not found"});
-            }
-            todos.splice(todoindex,1);
-            res.status(204).send();
-    } catch (error) {
-        console.log("Error", error);
+let aboutUsDatas = {
+  whyChooseUs: [
+    { 
+      icon: "fa-solid fa-bolt",
+      title:"Fast Delivery",
+      description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, molestias."
+    },
+    { 
+      icon: "fa-solid fa-lightbulb",
+      title:"Creative Solutions",
+      description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, molestias."
+    },
+    { 
+      icon: "fa-solid fa-handshake",
+      title:"Client Collaboration",
+      description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, molestias."
     }
-
+  ],
+  coreValues:
+    [
+      {
+      title:"Integrity", 
+     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, molestias."
+    },
+    {
+      title:"Innovation", 
+     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, molestias."
+    },
+    {
+      title:"Customer Focus", 
+     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, molestias."
+    },
+    {
+      title:"Excellence", 
+     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, molestias."
+    }
+  ]
+  
+};
+  
+// About Page 
+// http://localhost:5000/api/todos
+app.get("/api/aboutus",(req,res)=>{
+  res.json(aboutUsDatas);
 });
+
 
 
 app.listen(PORT,()=>{
-    console.log(`Express Server is running on https://localhost:${PORT}`);
+  console.log(`Express Server is running`);
 });
+
 
 // 19PD 

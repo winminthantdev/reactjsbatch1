@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
-const FurniturePage = () => {
-  return (
-    <div>
-      FurniturePage Page
-    </div>
+const FurniturePage = ()=>{
+  return(
+    <div>FurniturePage Page</div>
   )
-}
+};
 
-export default FurniturePage
+export default FurniturePage;

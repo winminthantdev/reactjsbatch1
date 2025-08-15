@@ -1,52 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React,{useState,useEffect} from "react";
 
 import building4 from "../assets/img/etc/building4.png"
 
 const Adv = ()=>{
 
-    const [advanimation,setAdvAnimation] = useState({
+    const [advAnimation,setAdvAnimation] = useState({
         image:false,
-        text:false
-});
+        text:false 
+    });
 
-useEffect(()=>{
+    useEffect(()=>{
 
-    const scrollHandler = ()=>{
+        const scrollHandler = () =>{
 
-        const getscrolltop = document.documentElement.scrollTop;
-        // console.log(getscrolltop);
+            const getscrolltop = window.scrollY || document.documentElement.scrollTop;
+            // console.log(getscrolltop); 
 
-        setAdvAnimation({
-            image:getscrolltop >= 900,
-            text:getscrolltop >= 900
-        });
-    }
+            setAdvAnimation({
+                image:getscrolltop >= 900,
+                text:getscrolltop >= 900
+            });
+        }
 
-     window.addEventListener("scroll",scrollHandler);
+        window.addEventListener('scroll',scrollHandler);
+
+        // clean up the event listener when component unmounts 
+        return ()=>window.removeEventListener("scroll",scrollHandler);
     
-    // clean up the event listener when component unmounts
-    return ()=>window.removeEventListener("scroll",scrollHandler)
-    
-},[advanimation])
-
+        
+    },[advAnimation]);
 
   return(
     <>
       {/* Start Adv Section */}
-        <section className="py-5 missions">
-            <div className="container">
-                <div className="row align-items-center">
-                <div className="col-lg-5">
-                    <img src={building4} className={`homeimages advimages ${advanimation.image ? 'fromlefts' : ''}`} alt="building4" />
+            <section className="p-5 missions">
+                <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-lg-5">
+                            <img src={building4} className={`homeimgs advimages ${advAnimation.image ? 'fromlefts' : ''}`} alt="building4" />
+                        </div>
+                        <div className={`col-lg-7 text-white text-center text-lg-end advtexts ${advAnimation.text ? 'fromrights' : ''}`}>
+                            <h1>What is Plannco & how we started our business in Myanmar</h1>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        </div>
+                    </div>
                 </div>
-
-                <div className={`col-lg-7 text-white text-center text-lg-end ${advanimation.text ? 'fromrights' : ''} advtexts`}>
-                    <h1>What is Plannco & how we started our business in Myanmar</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam esse quidem nam eveniet, possimus necessitatibus in quod voluptas explicabo consequatur. Autem eveniet corporis at, praesentium, voluptatum vero nam dolores provident esse adipisci nisi consectetur. Magni dolorum autem facilis odio vel, aperiam excepturi quibusdam porro, omnis culpa, rerum et quia adipisci facere voluptatum labore ut? Ipsa, animi incidunt! Officiis sapiente molestiae amet impedit consequuntur rem, quibusdam laboriosam sint deleniti odio fuga.</p>
-                </div>
-                </div>
-            </div>
-        </section>
+            </section>
         {/* End Adv Section */}
     </>
   )
