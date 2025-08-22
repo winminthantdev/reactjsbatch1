@@ -1,8 +1,11 @@
 import {configureStore} from "@reduxjs/toolkit"
-import todosReducer from './todosreducer';
+import clientsaySlice from './clientsaySlice';
+import contactformSlice from './contactFormSlice';
+
 
 export default configureStore({
   reducer:{
-    todos:todosReducer
+    clientsays:clientsaySlice,
+    contactforms:contactformSlice
   }
 });

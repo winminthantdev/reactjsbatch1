@@ -1,5 +1,8 @@
 import { createRoot } from 'react-dom/client'
-import {BrowserRouter as Router,Routes,Route,Link} from 'react-router';
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router';
+import {Provider} from 'react-redux'
+import store from './store/store.js'
+
 import './lib/fontawesome.js'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -14,11 +17,11 @@ import App from './App.jsx'
 
 
 createRoot(document.getElementById('root')).render(
-  <div>
+  <Provider store={store}>
     <Router>
       <App />
     </Router>
-  </div>,
+  </Provider>,
 )
 
 

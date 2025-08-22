@@ -1,9 +1,46 @@
-import React from "react";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import React,{useState,useEffect} from "react";
+import {useDispatch, useSelector} from 'react-redux';
+import { fetchClientsays } from "../store/clientsaySlice";
+import { submitContactForm,resetFormState } from "../store/contactFormSlice";
+
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import banner4 from "../assets/img/banner/banner4.jpg"
 
 const ContactPage = ()=>{
+
+  const {loading:clientsayLoading,error:clientsayError,datas} = useSelector(state=>state.clientsays);
+  const {loading:formLoading,error:formError,successMessage} = useSelector(state=>state.contactforms);
+
+  const [formData,setFormData] = useState({name:'',email:'',message:''});
+
+  const dispatch = useDispatch();
+
+  const changeHandler = (e)=>{
+    setFormData({...formData,[e.target.name]:e.target.value});
+  }
+
+  const submitHandler = (e)=>{
+    e.preventDefault();
+
+    dispatch(submitContactForm(formData));
+  };
+
+
+  useEffect(()=>{
+
+    dispatch(fetchClientsays());
+
+    if(successMessage){
+      setFormData({name:'',email:'',message:''});
+      setTimeout(()=>dispatch(resetFormState()),5000);
+    }
+
+  },[successMessage,dispatch]);
+
+
+
   return(
     <main className="bg-dark text-light">
     
@@ -31,27 +68,38 @@ const ContactPage = ()=>{
             </div>
 
 
+            {clientsayLoading && <p className="text-light text-center">Loading...</p>}
+            {clientsayError && <p className="text-danger text-center">Error : {clientsayError}</p>}
+
+
             <div className="row g-4">
 
-                <div className="col-lg-4"> 
-                  <div className="card h-100 bg-dark border-1 rounded-3">
-                    <div className="card-body p-4">
-                      <img src="https://randomuser.me/api/portraits/men/10.jpg" className="rounded-circle me-3" />
-                      <div>
-                        <h5 className="text-light mb-0">Mr.Aung Aung</h5>
-                        <p className="text-light">Manager</p>
+                {datas.map((data,idx)=>(
+                  <div className="col-lg-4" key={idx}> 
+                    <div className="card h-100 bg-dark border-light border-1 rounded-3">
+                      <div className="card-body p-4">
+                        <div className="d-flex align-items-center mb-4">
+                          <img src={`https://randomuser.me/api/portraits/${data.gender === "male" ? "men" : "women"}/${data.avaterId}.jpg`} className="rounded-circle me-3" width="60" height="60" alt={data.name} />
+                          <div>
+                            <h5 className="text-light mb-0">{data.name}</h5>
+                            <p className="text-light">{data.role}</p>
+                          </div>
+                        </div>
+                        <p className="card-text text-light">"{data.feedback}"</p>
+                        <div className="text-warning">
+                          {
+                            Array.from({length:Math.floor(data.rating)},(_,index)=>(
+                              <FontAwesomeIcon icon="fa-solid fa-star" key={index} />
+                            ))
+                          }
+                          {
+                           data.rating % 1 !== 0 &&  <FontAwesomeIcon icon="fa-solid fa-star-half" />
+                          }
+                        </div>
                       </div>
                     </div>
-                    <p className="card-text text-light">"The support team was incredibly responsive..."</p>
-                    <div className="text-warning">
-                        <FontAwesomeIcon icon="fa-solid fa-star" />
-                        <FontAwesomeIcon icon="fa-solid fa-star" />
-                        <FontAwesomeIcon icon="fa-solid fa-star" />
-                        <FontAwesomeIcon icon="fa-solid fa-star" />
-                        <FontAwesomeIcon icon="fa-solid fa-star" />
-                    </div>
                   </div>
-                </div>
+                ))}
 
             </div>
 
@@ -66,20 +114,26 @@ const ContactPage = ()=>{
     
             <div className="row justify-content-center">
                 <div className="col-md-8">
-                    <form onSubmit="">
+                    <form onSubmit={submitHandler}>
                         <div className="row">
                             <div className="col-md-6 mb-3">
                                 <label htmlFor="name" className="form-label"></label>
-                                <input type="text" name="name" id="name" className="form-control form-control-sm" value=""  onChange="" placeholder="Enter your name" autoFocus required/>
+                                <input type="text" name="name" id="name" className="form-control form-control-sm" value={formData.name}  onChange={changeHandler} placeholder="Enter your name" autoFocus required/>
                             </div>
                             <div className="col-md-6 mb-3">
                                 <label htmlFor="email" className="form-label"></label>
-                                <input type="email" name="email" id="email" className="form-control form-control-sm" value=""  onChange="" placeholder="Enter your eamil" required/>
+                                <input type="email" name="email" id="email" className="form-control form-control-sm" value={formData.email}  onChange={changeHandler} placeholder="Enter your eamil" required/>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="message" className="form-label"></label>
-                                <textarea name="message" id="message" className="form-control form-control-sm" rows="5" value=""  onChange="" placeholder="Write your message here" autoFocus required></textarea>
+                                <textarea name="message" id="message" className="form-control form-control-sm" rows="5" value={formData.message}  onChange={changeHandler} placeholder="Write your message here" autoFocus required></textarea>
                             </div>
+
+                            {formLoading && <p className="text-primary">Sending...</p>}
+                            {formError && <p className="text-danger">Error : {formError}</p>}
+                            {successMessage && <p className="text-success">{successMessage}</p>}
+
+
                             <div className="text-end">
                                 <button type="submit" className="btn btn-primary px-4">Submit</button>
                             </div>
@@ -108,3 +162,5 @@ const ContactPage = ()=>{
 };
 
 export default ContactPage;
+
+// 21CP 
